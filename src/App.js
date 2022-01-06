@@ -4,18 +4,16 @@ import { useState } from 'react';
 
 function App() {
 
-  // Buttons
-  
-
+  // ITEM STATES
   const [gold, setGold] = useState(10000);
-  const [miningLevel, setMiningLevel] = useState(1);
-
-  // Need to do
   const [copperOre, setCopperOre] = useState(0);
   const [tinOre, setTinOre] = useState(0);
+
+  // LEVEL STATES
+  const [miningLevel, setMiningLevel] = useState(1);
   const [autoMineLevel, setAutoMineLevel] = useState(0);
 
-  // LEVEL UP MINING LOGIC
+  // MINING CLICK LOGIC
   function handleMineGold() {
     setGold(gold + 1);
     if (miningLevel == 2) {
@@ -42,8 +40,17 @@ function App() {
 
   // SKILL - AUTOMINE LEVEL UP LOGIC
   function handleAutoMineClick() {
-    setAutoMineLevel(autoMineLevel + 1);
+    if (gold < 5000) {
+      alert("You do not have enough gold");
+    } else if (gold >= 5000) {
+      setGold(gold - 5000);
+      setAutoMineLevel(autoMineLevel + 1);
+    }
+    runAutoMine();
+  }
 
+  // LOGIC - AUTOMINE
+  function runAutoMine() {
     let intervalID = window.setInterval(myCallback, 1000);
     const mineButton = document.getElementById('mine');
     function myCallback() {
@@ -53,12 +60,14 @@ function App() {
 
   // INVENTORY - BUY TIN ORE
   function handleBuyTinOre() {
+    setGold(gold - 100);
     setTinOre(tinOre + 1);
   }
 
    // INVENTORY - BUY COPPER ORE
    function handleBuyCopperOre() {
-    setCopperOre(copperOre + 1);
+      setGold(gold - 100);
+      setCopperOre(copperOre + 1);
   }
 
  
