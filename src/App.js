@@ -1,6 +1,7 @@
 import { click } from '@testing-library/user-event/dist/click';
 import React from 'react';
 import { useState } from 'react';
+import Battle from './Components/Battle';
 
 function App() {
 
@@ -79,7 +80,7 @@ function App() {
       <h1>Mining Level: {miningLevel}</h1>
       <h1>Automine Level: {autoMineLevel}</h1>
       <p>Tin Ore: {tinOre}</p>
-      <p onClick={handleBuyCopperOre}>Copper Ore: {copperOre}</p>
+      <p>Copper Ore: {copperOre}</p>
       <button id="mine" onClick={handleMineGold}>Mine Gold</button>
       <div className="store">
         <div id="item1">
@@ -106,6 +107,7 @@ function App() {
           <p>Cost: 100 gold</p>
           <button onClick={handleAutoMineClick}>Purchase</button>
         </div>
+        <Battle></Battle>
       </div>
     </div>
   );
