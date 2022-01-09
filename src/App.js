@@ -71,9 +71,6 @@ function App() {
       setCopperOre(copperOre + 1);
   }
 
- 
-  
-
   return (
     <div className="App">
       <h1>Gold: {gold}</h1>
