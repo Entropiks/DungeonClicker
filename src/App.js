@@ -45,12 +45,11 @@ function App() {
       <h1>Automine Level: {autoMineLevel}</h1>
       <p>Tin Ore: {tinOre}</p>
       <p>Copper Ore: {copperOre}</p>
-      <button id="mine" onClick={handleMineGold}>Mine Gold</button>
-      {/* <Battle></Battle> */}
-
-      <Modal isOpen={false}></Modal>
+      <div style={{display: 'flex'}}>
+        <button id="mine" onClick={handleMineGold}>Mine Gold</button>
+        <Modal isOpen={false}></Modal>
+      </div>
       <Inventory></Inventory>
-      {/* <Store></Store> */}
     </div>
   );
 }
