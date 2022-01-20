@@ -1,7 +1,11 @@
 import React, {useState} from 'react';
+import { UserContext } from '../Context/UserContext';
 
 
 function Store() {
+
+  let x = UserContext;
+  console.log(x);
 
   const [gold, setGold] = useState(10000);
   const [copperOre, setCopperOre] = useState(0);
@@ -62,7 +66,8 @@ function Store() {
   }
 
   return (
-    <><h1>Store</h1>
+    <>
+    <h1>Store</h1>
     <section className="store">
       
         <div className="item">
